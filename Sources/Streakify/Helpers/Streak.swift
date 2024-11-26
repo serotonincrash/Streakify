@@ -8,7 +8,7 @@
 import Foundation
 
 @Observable
-class Streak: Codable {
+public class Streak: Codable {
     var streakValue: Int = 0
     var lastUpdated: Date = .now
     var key: String

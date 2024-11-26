@@ -4,7 +4,7 @@
 import Foundation
 import SwiftUI
 
-@propertyWrapper struct Streaked: DynamicProperty {
+@propertyWrapper public struct Streaked: DynamicProperty {
     
     @State public var streak: Streak
     
