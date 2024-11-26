@@ -10,7 +10,7 @@ import Foundation
 @Observable
 public class Streak: Codable {
     var streakValue: Int = 0
-    var lastUpdated: Date = .now
+    var lastUpdated: Date = .distantPast
     var key: String
     var shouldStreak: Bool = false
     var streakMode: StreakMode
