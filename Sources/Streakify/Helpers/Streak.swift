@@ -27,6 +27,7 @@ public class Streak: Codable {
         
         // Determine if has streaked today
         if streakMode == .daily {
+            print("Streak debug: shouldStreak is \(!lastUpdated.isToday())")
             self.shouldStreak = !lastUpdated.isToday()
         }
     }
