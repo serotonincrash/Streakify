@@ -31,7 +31,7 @@ public class Streak: Codable {
         }
     }
     
-    var value: Int {
+    public var value: Int {
         // calc the streak here, increment if necessary
         switch streakMode {
         case .daily:

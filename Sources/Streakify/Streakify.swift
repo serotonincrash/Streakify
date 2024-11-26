@@ -9,12 +9,12 @@ import SwiftUI
     @State public var streak: Streak
     
     public var key: String
-    init(_ key: String) {
+    public init(_ key: String) {
         self.key = key
         self.streak = Streak(key: key)
     }
     
-    init(_ key: String, streakMode: Streak.StreakMode) {
+    public init(_ key: String, streakMode: Streak.StreakMode) {
         self.key = key
         self.streak = Streak(key: key, streakMode: streakMode)
     }
