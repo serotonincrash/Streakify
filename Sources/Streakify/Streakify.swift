@@ -18,6 +18,7 @@ import SwiftUI
         self.key = key
         self.streak = Streak(key: key, streakMode: streakMode)
     }
+    
     public var wrappedValue: Streak {
         get {
             streak

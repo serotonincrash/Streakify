@@ -8,6 +8,7 @@
 import Foundation
 
 extension Streak {
+    // do we want to create a new plist for each streak? that sounds a bit inefficient
     static func getArchiveURL(from key: String) -> URL {
         let plistName = "\(key).plist"
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(plistName)
