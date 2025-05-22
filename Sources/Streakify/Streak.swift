@@ -49,7 +49,7 @@ public class Streak: Codable {
                 } else {
                     // streak should be updated but wasn't streaked yesterday
                     // break the streak (it's reset to 1 because the user now has 1 day logged in)
-                    self.lastUpdated = .distantPast
+                    self.lastUpdated = .now
                     self.streakBroken = .now
                     self.shouldStreak = false
                     self.streakValue = 1
@@ -68,12 +68,14 @@ public class Streak: Codable {
     /// Breaks the streak in a manual streak mode.
     public func breakStreak() throws {
         guard streakMode == .manual else { throw StreakError.unsupportedMode }
+        
     }
     
     
     /// Increments the streak in a manual streak mode.
     public func incrementStreak() throws {
         guard streakMode == .manual else { throw StreakError.unsupportedMode }
+        self.lastUpdated = .now
         
     }
 }
