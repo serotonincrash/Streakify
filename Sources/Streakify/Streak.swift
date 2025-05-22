@@ -35,9 +35,9 @@ public class Streak: Codable {
     
     public var value: Int {
         // calc the streak here, increment if necessary
-        switch streakMode {
+        switch self.streakMode {
         case .daily:
-            if shouldStreak {
+            if self.shouldStreak {
                 if lastUpdated.isInYesterday() {
                     // streak was updated yesterday and hasn't today
                     // increment
@@ -61,22 +61,33 @@ public class Streak: Codable {
                 return self.streakValue
             }
         case .manual:
-            return streakValue
+            return self.streakValue
         }
     }
     
     /// Breaks the streak in a manual streak mode.
     public func breakStreak() throws {
-        guard streakMode == .manual else { throw StreakError.unsupportedMode }
+        guard self.streakMode == .manual else { throw StreakError.unsupportedMode }
         
     }
+    
+    
     
     
     /// Increments the streak in a manual streak mode.
+    /// Also disables streaking until `shouldStreak` is manually set to `true` again.
     public func incrementStreak() throws {
         guard streakMode == .manual else { throw StreakError.unsupportedMode }
-        self.lastUpdated = .now
-        
+        if self.shouldStreak {
+            self.lastUpdated = .now
+            self.streakValue += 1
+            self.shouldStreak = false
+        } else {
+            print("incrementStreak called when shouldStreak was false!")
+        }
     }
+    
+    
+    
 }
 
